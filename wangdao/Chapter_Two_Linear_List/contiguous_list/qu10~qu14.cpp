@@ -95,6 +95,22 @@ int smallest_positive_integer_not_arrpear(vector<int> arr)
 
 //qu14
 //
+int findMinofTrip(vector<int> arr1, vector<int> arr2, vector<int> arr3)
+{
+    int i = 0, j = 0, k = 0;
+    int minDis = 0x3f3f3f3f;
+    while(i < arr1.size() && j < arr2.size() && k < arr3.size() && minDis >= 0)
+    {
+        int tpdis = abs(arr1[i] - arr2[j]) + abs(arr2[j] - arr3[k]) + abs(arr3[k] - arr1[i]);
+        if(arr1[i] < arr2[j] && arr1[i] < arr3[k])
+            i++;
+        else if(arr2[j] < arr1[i] && arr2[j] < arr3[k])
+            j++;
+        else
+            k++;
+    }
+    return minDis;
+}
 
 
 
